@@ -19,10 +19,10 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-//        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
-//
-//        String login = config.login();
-//        String password = config.password();
+        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
+
+        String login = config.login();
+        String password = config.password();
 
         String browser = System.getProperty("browser", "chrome");
         String browserSize = System.getProperty("browserSize", "1920x1080");
@@ -30,7 +30,7 @@ public class TestBase {
 
         Configuration.browser = browser;
         Configuration.browserSize = browserSize;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = "https://" + login + ":" + password + "@" + remoteDriver + "/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
