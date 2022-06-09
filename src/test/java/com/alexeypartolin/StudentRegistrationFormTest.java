@@ -8,10 +8,7 @@ import com.codeborne.selenide.*;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -29,6 +26,7 @@ import static io.qameta.allure.Allure.step;
 public class StudentRegistrationFormTest extends TestBase {
 
     @Test
+    @Tag("demoTests")
     @DisplayName("Successful fill registration test")
     public void newTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
